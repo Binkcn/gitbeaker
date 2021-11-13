@@ -85,4 +85,12 @@ export class PipelineSchedules<C extends boolean = false> extends BaseResource<C
       options,
     );
   }
+  
+  play(projectId: string | number, scheduleId: number, options?: Sudo) {
+    return RequestHelper.post<PipelineScheduleExtendedSchema>()(
+      this,
+      endpoint`projects/${projectId}/pipeline_schedules/${scheduleId}/play`,
+      options,
+    );
+  }
 }
